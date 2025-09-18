@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="robo003">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="robo">
+        <joint name="base"/>
+        <joint name="joint1"/>
+        <joint name="joint2"/>
+        <joint name="joint3"/>
+        <joint name="joint4"/>
+        <joint name="joint5"/>
+        <joint name="joint6"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    
+    <group_state name="home" group="robo">
+        <joint name="joint1" value="0"/>
+        <joint name="joint2" value="0"/>
+        <joint name="joint3" value="0"/>
+        <joint name="joint4" value="0"/>
+        <joint name="joint5" value="0"/>
+        <joint name="joint6" value="0"/>
+    </group_state>
+
+    
+    <group_state name="vist" group="robo">
+        <joint name="joint1" value="-0.0001"/>
+        <joint name="joint2" value="-0.5282"/>
+        <joint name="joint3" value="2.4260"/>
+        <joint name="joint4" value="0.0004"/>
+        <joint name="joint5" value="-0.3178"/>
+        <joint name="joint6" value="0.00007"/>
+    </group_state>
+    
+    <group_state name="vism" group="robo">
+    <joint name="joint1" value="0"/>
+    <joint name="joint2" value="-2.180"/> <!-- -90도 -->
+    <joint name="joint3" value="2.183"/>  <!-- 90도 -->
+    <joint name="joint4" value="0"/>
+    <joint name="joint5" value="1.571"/>
+    <joint name="joint6" value="0"/>
+    </group_state>
+
+    <group_state name="visd" group="robo">
+    <joint name="joint1" value="0"/>
+    <joint name="joint2" value="1.430"/> <!-- -90도 -->
+    <joint name="joint3" value="1.732"/>  <!-- 90도 -->
+    <joint name="joint4" value="0"/>
+    <joint name="joint5" value="-1.571"/>
+    <joint name="joint6" value="0"/>
+    </group_state>
+
+    <group_state name="visdd" group="robo">
+    <joint name="joint1" value="0"/>
+    <joint name="joint2" value="2.218"/> <!-- -90도 -->
+    <joint name="joint3" value="0.787"/>  <!-- 90도 -->
+    <joint name="joint4" value="0"/>
+    <joint name="joint5" value="-1.421"/>
+    <joint name="joint6" value="0"/>
+    </group_state>
+
+      <group_state name="vist2" group="robo">
+        <joint name="joint1" value="0.015"/>
+        <joint name="joint2" value="-0.4268"/>
+        <joint name="joint3" value="1.4701"/>
+        <joint name="joint4" value="-0.0299"/>
+        <joint name="joint5" value="0.5234"/>
+        <joint name="joint6" value="0.0255"/>
+    </group_state>
+
+    <group_state name="vism2" group="robo">
+        <joint name="joint1" value="-0.0001"/>
+        <joint name="joint2" value="-0.5282"/>
+        <joint name="joint3" value="2.4260"/>
+        <joint name="joint4" value="0.0004"/>
+        <joint name="joint5" value="-0.3178"/>
+        <joint name="joint6" value="0.00007"/>
+    </group_state>
+
+    <group_state name="visd2" group="robo">
+        <joint name="joint1" value="0.0000"/>
+        <joint name="joint2" value="0.8009"/>
+        <joint name="joint3" value="2.3560"/>
+        <joint name="joint4" value="0.00002"/>
+        <joint name="joint5" value="-1.5691"/>
+        <joint name="joint6" value="0.0000"/>
+    </group_state>
+
+    <group_state name="visdd2" group="robo">
+        <joint name="joint1" value="0.0000"/>
+        <joint name="joint2" value="1.7156"/>
+        <joint name="joint3" value="1.4434"/>
+        <joint name="joint4" value="0.00002"/>
+        <joint name="joint5" value="-1.5698"/>
+        <joint name="joint6" value="0.0000"/>
+    </group_state>
+
+
+    <group_state name="vist3" group="robo">
+        <joint name="joint1" value="0.0000"/>
+        <joint name="joint2" value="-0.7876"/>
+        <joint name="joint3" value="2.4086"/>
+        <joint name="joint4" value="0.0000"/>
+        <joint name="joint5" value="-0.0649"/>
+        <joint name="joint6" value="-0.0000"/>
+    </group_state>
+
+
+    <group_state name="visd3" group="robo">
+        <joint name="joint1" value="0.0000"/>
+        <joint name="joint2" value="0.8901"/>
+        <joint name="joint3" value="2.2689"/>
+        <joint name="joint4" value="0.0000"/>
+        <joint name="joint5" value="-1.5708"/>
+        <joint name="joint6" value="-0.0000"/>
+    </group_state>
+
+
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="base" type="fixed" parent_frame="base" child_link="base_link"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="joint1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="joint2" reason="Never"/>
+    <disable_collisions link1="joint1" link2="joint2" reason="Adjacent"/>
+    <disable_collisions link1="joint2" link2="joint3" reason="Adjacent"/>
+    <disable_collisions link1="joint2" link2="joint4" reason="Never"/>
+    <disable_collisions link1="joint2" link2="joint5" reason="Never"/>
+    <disable_collisions link1="joint2" link2="joint6" reason="Never"/>
+    <disable_collisions link1="joint3" link2="joint4" reason="Adjacent"/>
+    <disable_collisions link1="joint3" link2="joint5" reason="Never"/>
+    <disable_collisions link1="joint3" link2="joint6" reason="Never"/>
+    <disable_collisions link1="joint4" link2="joint5" reason="Adjacent"/>
+    <disable_collisions link1="joint4" link2="joint6" reason="Never"/>
+    <disable_collisions link1="joint5" link2="joint6" reason="Adjacent"/>
+</robot>

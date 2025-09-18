@@ -1,0 +1,8 @@
+<launch>
+    <!-- ROS 패키지에서 launch 파일 실행 -->
+    <include file="$(find realsense2_camera)/launch/rs_rgbd.launch"/>
+
+    <!-- rosrun을 이용한 노드 실행 -->
+    <node pkg="pepper_detection" type="ros_main.py" name="ros_main" output="screen"/>
+
+</launch>

@@ -1,0 +1,11 @@
+int32 e
+int32 u  # 객체 감지 여부 (0 = 미검출, 1 = 검출)
+int32 p # 포스
+float64 x
+float64 y
+float64 z
+float64 dgree
+---
+int64 state
+
+
