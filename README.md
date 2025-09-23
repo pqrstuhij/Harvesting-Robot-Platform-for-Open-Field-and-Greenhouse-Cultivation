@@ -9,18 +9,17 @@
 - **프로젝트 목적**: 노지와 시설 재배 환경 모두에서 효과적인 작물을 수확할 수 있는 로봇 플랫폼을 개발 (적용 작물 : 고추).
 - **결과물**: 정량적 목표를 모두 성공적으로 이루며 시연까지 완료하였고 사업화를 위해 추가 개발 진행중 
 
-2배속
+2배속 실내 실외 모두 실제 고추 및 실제 고추나무 수확영상
 
-**실외 실제 고추
+
 https://github.com/user-attachments/assets/12cb7763-727a-49c0-bc78-91b8486bdc5b
 
 
-**실외 실제 고추
+
 https://github.com/user-attachments/assets/0b463df7-39d1-48a1-9317-8d365999ffa8
 
 
-
-**실내 실제 고추 
+ 
 https://github.com/user-attachments/assets/27393644-b7d9-44ba-8aee-a2d792491558
 
 
